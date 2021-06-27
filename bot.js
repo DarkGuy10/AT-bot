@@ -20,6 +20,8 @@ client.once('ready', () => {
 client.on('message', message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.channel.type === 'dm') return;
 
+    if(message.author.id != '755109987474473059') return;
+
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);
     const commandName = args.shift();
     command = client.commands.get(commandName);
