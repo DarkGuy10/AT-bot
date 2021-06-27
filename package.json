@@ -1,0 +1,23 @@
+{
+  "name": "at-bot",
+  "version": "1.0.0",
+  "description": "Thots be thotting. Bot be botting",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarkGuy10/AT-bot.git"
+  },
+  "author": "DarkGuy10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarkGuy10/AT-bot/issues"
+  },
+  "homepage": "https://github.com/DarkGuy10/AT-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  }
+}
