@@ -88,7 +88,13 @@ module.exports = {
         await appendEmbed('> Adding logs channel...');
         const logsChannel = await message.guild.channels.create('logs', {
             type: 'text',
-            parent: category
+            parent: category,
+            permissionOverwrites: [
+                {   
+                    id: verifierRole.id,
+                    allow: ['VIEW_CHANNEL', 'READ_MESSAGE_HISTORY']
+                },
+            ],
         });
 
         await appendEmbed('> Adding config channel...');
