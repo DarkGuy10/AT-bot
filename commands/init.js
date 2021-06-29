@@ -41,7 +41,8 @@ module.exports = {
         await appendEmbed(`> Editing perms for ${unverifiedRole}...`);
         message.guild.channels.cache.each(async (channel) => {
             await channel.createOverwrite(unverifiedRole.id, {
-                SEND_MESSAGES: false
+                SEND_MESSAGES: false,
+                ADD_REACTIONS: false
             })
         })
 
