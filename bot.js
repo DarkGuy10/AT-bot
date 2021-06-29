@@ -25,7 +25,7 @@ client.once('ready', () => {
                     const configMessage = messages.find(message => message.author == client.user && message.content.includes('json'));
                     if(!configMessage)
                         return guild.systemChannel()?.send('Server mis-configured!');
-                    const config = JSON.parse(configMessage.content.replaceAll('```', '').replace('json', ''));
+                    const config = JSON.parse(configMessage.content.replace('```', '').replace('json', ''));
                     client.guildConfigs.set(guild.id, config);
                     console.log('Done!');
                 })
