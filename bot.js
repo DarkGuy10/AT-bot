@@ -20,20 +20,15 @@ client.once('ready', () => {
     client.guilds.cache.each(guild => {
         const configChannel = guild.channels.cache.find(channel => channel.parent && channel.parent.name === 'AT-bot-zone' && channel.name === 'config');
         if(configChannel){
-            try {
-                configChannel.messages.fetch({ limit: 10 })
-                    .then(messages => {
-                        const configMessage = messages.find(message => message.author == client.user && message.content.includes('json'));
-                        if(!configMessage)
-                            throw 'Mis-configured'
-                        const config = JSON.parse(configMessage.content.replaceAll('```', '').replace('json', ''));
-                        client.guildConfigs.set(guild.id, config);
-                        console.log('Done!');
-                    })
-            } catch(error) {
-                console.error(error);
-                guild.systemChannel()?.send('Server mis-configured!');
-            }
+            configChannel.messages.fetch({ limit: 10 })
+                .then(messages => {
+                    const configMessage = messages.find(message => message.author == client.user && message.content.includes('json'));
+                    if(!configMessage)
+                        return guild.systemChannel()?.send('Server mis-configured!');
+                    const config = JSON.parse(configMessage.content.replaceAll('```', '').replace('json', ''));
+                    client.guildConfigs.set(guild.id, config);
+                    console.log('Done!');
+                })
         }
     });
 })
