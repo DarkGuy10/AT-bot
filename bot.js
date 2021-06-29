@@ -40,6 +40,14 @@ client.on('guildMemberAdd', member => {
     member.guild.channels.resolve(guildConfigs.waitingRoomChannelID).send(`${member} ${member.guild.roles.resolve(guildConfigs.verifierRoleID)} Please complete the verification to be able to talk in server!`)
 });
 
+client.on('channelCreate', channel => {
+    if(channel.type === 'dm') return;
+    channel.createOverwrite(client.guildConfigs.get(channel.guild.id).unverifiedRoleID, {
+        SEND_MESSAGES: false,
+        ADD_REACTIONS: false
+    })
+});
+
 client.on('message', message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.channel.type === 'dm') return;
 
