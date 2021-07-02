@@ -7,8 +7,7 @@ module.exports = {
         if(message.channel.id != guildConfigs.waitingRoomChannelID || !message.member.roles.cache.has(guildConfigs.verifierRoleID))
             return;
 
-        //const toVerifyID =  args.join(' ').match(/<@![0-9]{18}>/)[0].slice(3, 21);
-        const toVerifyID = message.mentions.first.id;
+        const toVerifyID =  args.join(' ').match(/<@!?[0-9]{18}>/)[0].slice(3, 21);
         message.guild.members.fetch(toVerifyID)
             .then(async member => {
                 if(!member.roles.cache.has(guildConfigs.unverifiedRoleID))
