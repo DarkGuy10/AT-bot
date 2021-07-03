@@ -37,7 +37,7 @@ client.on('guildMemberAdd', member => {
     if(member.user.bot) return;
     const guildConfigs = client.guildConfigs.get(member.guild.id);
     member.roles.add(guildConfigs.unverifiedRoleID);
-    member.guild.channels.resolve(guildConfigs.waitingRoomChannelID).send(`${member} Please complete the verification to be able to talk in server!`)
+    member.guild.channels.resolve(guildConfigs.waitingRoomChannelID).send(`${member} ${member.guild.roles.resolve(guildConfigs.verifierRoleID)} Please complete the verification to be able to talk in the server!`);
 });
 
 client.on('channelCreate', channel => {
