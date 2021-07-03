@@ -51,7 +51,7 @@ client.on('channelCreate', channel => {
 client.on('message', message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.channel.type === 'dm') return;
 
-    if(message.mentions.members.has(message.guild.me))
+    if(message.mentions.members.has(client.user.id))
         message.channel.send('lol I\'m here');
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);
