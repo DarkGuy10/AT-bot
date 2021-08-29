@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const {prefix, guildConfigs} = require('./config.json');
 const fs = require('fs');
-const db = require('quick.db');
 require('dotenv').config();
 
 const client = new Discord.Client({
