@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+// Removing command
 
 module.exports = {
     name: 'init',

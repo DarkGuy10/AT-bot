@@ -1,6 +1,6 @@
 module.exports = {
     name: 'reload',
-    execute(message, args) {
+    async execute(message, args) {
         const commandName = args[0].toLowerCase();
         const command = message.client.commands.get(commandName);
         if(!command)

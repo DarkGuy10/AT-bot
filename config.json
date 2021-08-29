@@ -1,3 +1,15 @@
 {
-    "prefix" : "at"
+    "prefix" : "at",
+    "guildConfigs": [
+        {
+            "id": "771033339665842227",
+            "configs": {
+                "unverifiedRoleID": "859330931767640074",
+                "verifierRoleID": "859330973354033162",
+                "waitingRoomChannelID": "859330985627090955",
+                "defaultRoleID": "777904066477948939",
+                "logsChannelID": "859331000940232704"
+            }
+        }
+    ]
 }
